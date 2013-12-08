@@ -64,7 +64,9 @@ public class MusicFactory {
 	public static Music createMusicFromFile(final MusicManager pMusicManager, final File pFile) throws IOException {
 		final MediaPlayer mediaPlayer = new MediaPlayer();
 
-		mediaPlayer.setDataSource(new FileInputStream(pFile).getFD());
+		FileInputStream fileInputStream = new FileInputStream(pFile);
+		mediaPlayer.setDataSource(fileInputStream.getFD());
+		fileInputStream.close();
 		mediaPlayer.prepare();
 
 		final Music music = new Music(pMusicManager, mediaPlayer);

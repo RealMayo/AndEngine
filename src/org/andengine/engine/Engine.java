@@ -3,7 +3,6 @@ package org.andengine.engine;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-
 import org.andengine.BuildConfig;
 import org.andengine.audio.music.MusicFactory;
 import org.andengine.audio.music.MusicManager;
@@ -41,7 +40,7 @@ import org.andengine.opengl.util.GLState;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.debug.Debug;
 import org.andengine.util.time.TimeConstants;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -66,6 +65,7 @@ import android.view.WindowManager;
  * @author Nicolas Gramlich
  * @since 12:21:31 - 08.03.2010
  */
+@SuppressLint("WrongCall")
 public class Engine implements SensorEventListener, OnTouchListener, ITouchEventCallback, LocationListener {
 	// ===========================================================
 	// Constants
@@ -683,6 +683,7 @@ public class Engine implements SensorEventListener, OnTouchListener, ITouchEvent
 	/**
 	 * @return <code>true</code> when the sensor was successfully enabled, <code>false</code> otherwise.
 	 */
+	@SuppressWarnings("deprecation")
 	public boolean enableAccelerationSensor(final Context pContext, final IAccelerationListener pAccelerationListener, final AccelerationSensorOptions pAccelerationSensorOptions) {
 		final SensorManager sensorManager = (SensorManager) pContext.getSystemService(Context.SENSOR_SERVICE);
 		if(Engine.isSensorSupported(sensorManager, Sensor.TYPE_ACCELEROMETER)) {
@@ -726,6 +727,7 @@ public class Engine implements SensorEventListener, OnTouchListener, ITouchEvent
 	/**
 	 * @return <code>true</code> when the sensor was successfully enabled, <code>false</code> otherwise.
 	 */
+	@SuppressWarnings("deprecation")
 	public boolean enableOrientationSensor(final Context pContext, final IOrientationListener pOrientationListener, final OrientationSensorOptions pOrientationSensorOptions) {
 		final SensorManager sensorManager = (SensorManager) pContext.getSystemService(Context.SENSOR_SERVICE);
 		if(Engine.isSensorSupported(sensorManager, Sensor.TYPE_ACCELEROMETER) && Engine.isSensorSupported(sensorManager, Sensor.TYPE_MAGNETIC_FIELD)) {

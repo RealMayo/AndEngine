@@ -9,6 +9,7 @@ import android.os.PowerManager;
  * @author Nicolas Gramlich
  * @since 19:45:23 - 10.07.2010
  */
+@SuppressWarnings("deprecation")
 public enum WakeLockOptions {
 	// ===========================================================
 	// Elements
