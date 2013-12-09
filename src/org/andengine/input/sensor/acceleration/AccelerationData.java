@@ -14,6 +14,7 @@ import android.view.Surface;
  * @author Nicolas Gramlich
  * @since 16:50:44 - 10.03.2010
  */
+@SuppressWarnings("deprecation")
 public class AccelerationData extends BaseSensorData {
 	// ===========================================================
 	// Constants
